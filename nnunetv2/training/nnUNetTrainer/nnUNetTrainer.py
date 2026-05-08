@@ -96,6 +96,7 @@ class nnUNetTrainer(object):
         self.local_rank = 0 if not self.is_ddp else dist.get_rank()
 
         self.device = device
+        self.device = torch.device('cpu')
 
         # print what device we are using
         if self.is_ddp:  # implicitly it's clear that we use cuda in this case
